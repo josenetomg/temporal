@@ -1,0 +1,31 @@
+# 📦 Exemplo de Workflow Durável com Temporal (Python SDK)
+
+Este projeto demonstra a implementação de um fluxo de trabalho (Workflow) durável usando o Temporal IO e o Python SDK. Ele simula um processo de "Gestão de Pedidos" que orquestra duas atividades de negócios, garantindo resiliência e recuperação automática de falhas.
+
+## 🚀 Estrutura do Projeto
+
+O exemplo é composto por quatro arquivos principais:
+
+1.  `activities.py`: Contém a lógica de negócios não determinística (ex: I/O, chamadas de API).
+2.  `workflows.py`: Define o fluxo de orquestração determinístico das atividades.
+3.  `run_worker.py`: O serviço Worker que hospeda e executa o Workflow e as Activities, escutando a Task Queue.
+4.  `start_workflow.py`: O Cliente que se conecta ao servidor Temporal e inicia a execução do Workflow.
+
+## 📋 Pré-requisitos
+
+Para rodar este projeto, você precisa ter:
+
+1.  **Python 3.8+**
+2.  **Temporal Server**: O servidor Temporal deve estar rodando. A maneira mais fácil é usando Docker:
+    ```bash
+    docker run --rm -it -p 7233:7233 temporalio/temporal:latest
+    ```
+
+## 🔧 Instalação e Configuração
+
+### 1. Dependências Python
+
+Instale o SDK do Temporal para Python:
+
+```bash
+pip install temporalio
